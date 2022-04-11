@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Register = () => {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   return (
     <div className="d-flex justify-content-center">
       <div className="form-image">
@@ -18,6 +22,7 @@ const Register = () => {
               className="form-control"
               id="first-name"
               placeholder="Enter your first name.."
+              onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -29,6 +34,7 @@ const Register = () => {
               className="form-control"
               id="last-name"
               placeholder="Enter your last name.."
+              onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -40,6 +46,7 @@ const Register = () => {
               className="form-control"
               id="email"
               placeholder="Enter your email adress.."
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -51,6 +58,7 @@ const Register = () => {
               className="form-control"
               id="password"
               placeholder="Enter your password.."
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
         </form>
