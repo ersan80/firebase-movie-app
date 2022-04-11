@@ -17,13 +17,14 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-export const createUser = async (email, password) => {
+export const createUser = async (email, password, navigate) => {
   try {
     let userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
+    navigate("/");
     console.log(userCredential);
   } catch (err) {
     alert(err.message);
