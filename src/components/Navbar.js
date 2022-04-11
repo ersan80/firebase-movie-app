@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   // const currentUser = { displayName: "felix franko" };
   const currentUser = false;
   return (
@@ -17,13 +18,23 @@ const Navbar = () => {
                 {currentUser?.displayName}
               </h5>
             ) : (
-              <button className="ms-2 btn btn-outline-light">Login</button>
+              <button
+                className="ms-2 btn btn-outline-light"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
             )}
 
             {currentUser ? (
               <button className="ms-2 btn btn-outline-light">Logout</button>
             ) : (
-              <button className="ms-2 btn btn-outline-light">Register</button>
+              <button
+                className="ms-2 btn btn-outline-light"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
             )}
           </div>
         </div>
