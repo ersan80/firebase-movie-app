@@ -9,6 +9,18 @@ const defaultImage =
 const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
   const { currentUser } = useContext(AuthContext);
   let navigate = useNavigate();
+<<<<<<< HEAD
+=======
+  // const setVoteClass = (vote) => {
+  //   if (vote >= 8) {
+  //     return "green";
+  //   } else if (vote >= 6) {
+  //     return "orange";
+  //   } else {
+  //     return "red";
+  //   }
+  // };
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
 
   return (
     <div
@@ -16,7 +28,11 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
       onClick={() =>
         currentUser
           ? navigate("details/" + id)
+<<<<<<< HEAD
           : alert("Please log in see details")
+=======
+          : alert("Please log in to see details")
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
       }
     >
       <img src={poster_path ? IMG_API + poster_path : defaultImage} alt="" />

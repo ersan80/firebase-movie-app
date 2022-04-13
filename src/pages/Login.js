@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { signIn,signIn2 } from "../auth/firebase";
+=======
+import { signIn, signUpProvider } from "../auth/firebase";
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -13,6 +17,7 @@ const Login = () => {
     console.log(email, password);
   };
 
+<<<<<<< HEAD
   const handleGoogle =(e)=>{
     e.preventDefault();
     signIn2(navigate)
@@ -23,6 +28,18 @@ const Login = () => {
       <div className="form-image">
         <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
       </div>
+=======
+  const handleProviderLogin = () => {
+    signUpProvider(navigate);
+  };
+  return (
+    <div className="d-flex justify-content-center">
+      {window.innerWidth > 700 && (
+        <div className="form-image">
+          <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
+        </div>
+      )}
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
       <div className="register-form">
         <h1 className="form-title display-3">Login</h1>
         <form id="register" onSubmit={handleSubmit}>
@@ -59,7 +76,14 @@ const Login = () => {
             // onSubmit={handleSubmit}
           />
         </form>
+<<<<<<< HEAD
         <button className="btn btn-primary form-control" onClick={handleGoogle}>
+=======
+        <button
+          className="btn btn-primary form-control"
+          onClick={handleProviderLogin}
+        >
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
           Continue with Google
         </button>
       </div>

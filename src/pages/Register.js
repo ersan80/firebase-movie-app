@@ -10,17 +10,31 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+<<<<<<< HEAD
     const displayName = `${firstName} ${lastName}`
     e.preventDefault();
     createUser(email, password, navigate);
+=======
+    const displayName = `${firstName} ${lastName}`;
+    e.preventDefault();
+    createUser(email, password, displayName, navigate);
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
 
     console.log(firstName, lastName);
   };
   return (
     <div className="d-flex justify-content-center">
+<<<<<<< HEAD
       <div className="form-image">
         <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
       </div>
+=======
+      {window.innerWidth > 700 && (
+        <div className="form-image">
+          <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
+        </div>
+      )}
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
       <div className="register-form">
         <h1 className="form-title display-3">Register</h1>
         <form id="register" onSubmit={handleSubmit}>

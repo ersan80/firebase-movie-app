@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React,{useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../auth/firebase";
@@ -8,6 +9,18 @@ const Navbar = () => {
   const {currentUser} = useContext(AuthContext)
   // const currentUser = { displayName: "felix franko" };
   //const currentUser = false;
+=======
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { logOut } from "../auth/firebase";
+import { AuthContext } from "../context/AuthContext";
+
+const Navbar = () => {
+  const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
+  // const currentUser = { displayName: "felix franko" };
+  // const currentUser = false;
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
@@ -30,7 +43,16 @@ const Navbar = () => {
             )}
 
             {currentUser ? (
+<<<<<<< HEAD
               <button className="ms-2 btn btn-outline-light" onClick={()=>logOut()}>Logout</button>
+=======
+              <button
+                className="ms-2 btn btn-outline-light"
+                onClick={() => logOut()}
+              >
+                Logout
+              </button>
+>>>>>>> b56cc861ebf91c757180bef6b050ee945ba48adb
             ) : (
               <button
                 className="ms-2 btn btn-outline-light"
