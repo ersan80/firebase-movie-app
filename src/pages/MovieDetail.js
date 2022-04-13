@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -52,7 +52,11 @@ const MovieDetail = () => {
               <li className="list-group-item">
                 {"Total Vote : " + movieDetails?.vote_count}
               </li>
-              <li className="list-group-item"></li>
+              <li className="list-group-item">
+                <Link to={-1} className="card-link">
+                  Go Back
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
