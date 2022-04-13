@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
 
 // const API_KEY = "d6278b3dc3e6f8f8376a89851c3f8c8f";
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
