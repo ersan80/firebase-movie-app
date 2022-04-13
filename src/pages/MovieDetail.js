@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const MovieDetail = () => {
   const { id } = useParams();
+  const [movieDetails, setMovieDetails] = useState();
+
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
   // const API_KEY = "d6278b3dc3e6f8f8376a89851c3f8c8f";
   const movieDetailBaseUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
@@ -15,11 +17,48 @@ const MovieDetail = () => {
   useEffect(() => {
     axios
       .get(movieDetailBaseUrl)
-      .then((res) => console.log(res.data))
+      .then((res) => setMovieDetails(res.data))
       .catch((err) => console.log(err));
   }, [movieDetailBaseUrl]);
 
-  return <div>MovieDetail</div>;
+  return (
+    <div className="container py-5">
+      <h1 className="text-center">{movieDetails?.title}</h1>
+      <div className="card mb-3">
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              src={
+                movieDetails?.poster_path
+                  ? baseImageUrl + movieDetails?.poster_path
+                  : defaultImage
+              }
+              className="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div className="col-md-8 d-flex flex-column ">
+            <div className="card-body">
+              <h5 className="card-title">Overview</h5>
+              <p className="card-text">{movieDetails?.overview}</p>
+            </div>
+            <ul className="list-group ">
+              <li className="list-group-item">
+                {"Release Date : " + movieDetails?.release_date}
+              </li>
+              <li className="list-group-item">
+                {"Rate : " + movieDetails?.vote_average}
+              </li>
+              <li className="list-group-item">
+                {"Total Vote : " + movieDetails?.vote_count}
+              </li>
+              <li className="list-group-item"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MovieDetail;
