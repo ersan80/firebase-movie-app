@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
@@ -67,4 +68,16 @@ export const signIn = async (email, password, navigate) => {
 export const logOut = () => {
   signOut(auth);
   alert("logged out successfully");
+};
+
+export const userObserver = (setCurrentUser) => {
+  onAuthStateChanged(auth, (currentUser) => {
+    if (currentUser) {
+      setCurrentUser(currentUser);
+      // ...
+    } else {
+      // User is signed out
+      setCurrentUser(false);
+    }
+  });
 };
