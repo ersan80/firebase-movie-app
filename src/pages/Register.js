@@ -17,9 +17,11 @@ const Register = () => {
   };
   return (
     <div className="d-flex justify-content-center">
-      <div className="form-image">
-        <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
-      </div>
+      {window.innerWidth > 700 && (
+        <div className="form-image">
+          <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
+        </div>
+      )}
       <div className="register-form">
         <h1 className="form-title display-3">Register</h1>
         <form id="register" onSubmit={handleSubmit}>
